@@ -1,0 +1,40 @@
+.toggle-button {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 24px;
+    width: 30px; 
+    background: transparent;
+    border: none;
+    cursor: pointer; 
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.toggle-button:focus {
+    outline: none; 
+}
+
+.toggle-button_line {
+
+    width: 30px;
+    height: 3px;
+    margin-top: 4px;
+    padding-top: 2px;
+    background: white;
+}
+
+
+ul {
+    display: inline;
+    list-style-type: none;
+    min-width: 696px;
+    list-style: none;
+    padding-top: 20px;
+}
+
+li {
+    display: inline;
+    // float: left;
+    padding: 18px;
+}
