@@ -44,5 +44,6 @@ const QRCode = props => {
     </div>
     )
   }
+  
 
 export default QRCode;

@@ -38,6 +38,11 @@ export const handleUserProfile = async ({ userAuth, additionalData }) => {
     return userRef;
 };
 
+// var storageRef = firebase.storage.ref("videos");
+// storageRef.getDownloadURL().then(function(url) {
+//   console.log(url);
+// });
+
 export const getCurrentUser = () => {
     return new Promise((resolve, reject) => {
         const unsubscribe = auth.onAuthStateChanged(userAuth => {

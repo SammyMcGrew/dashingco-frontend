@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './style.scss';
+import FileUploader from "react-firebase-file-uploader";
 import {Table, Container, Grid, Row, Col, Image, Button} from 'react-bootstrap';
 // import Button from './../../../../
 
@@ -8,6 +9,7 @@ import {Table, Container, Grid, Row, Col, Image, Button} from 'react-bootstrap';
 // import QRcodes from '../../components/QRCodes';
 import Lesson from '../../components/lesson';
 import Videos from '../../components/Videos';
+import Upload from '../../components/FileUpload';
 
 const Dashboard = props => {
     return (
@@ -16,6 +18,7 @@ const Dashboard = props => {
             <h1 >
                 Welcome to your dashboard!
             </h1>
+            
             <Container >
                 <Row>
                     <Col className='resumelink'>
