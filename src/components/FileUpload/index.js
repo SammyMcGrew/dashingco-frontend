@@ -1,81 +1,39 @@
 import React, { Component } from 'react';
 import firebase from "firebase";
-import FileUploader from "react-firebase-file-uploader";
-import { imagePickerOptions, getFileLocalPath } from '../../Utils/index.js';
 import './style.scss';
-
+// import {ZiggeoPlayer} from 'react-ziggeo';
 
 
 class VideoPage extends Component {
-    state = {
-      video: " ",
-      title: " ",
-      isUploading: false,
-      progress: 0,
-      videoURL: " ",
-    };
+  state = {
    
-    
-    handleUploadVideo = event =>
-      this.setState({ video: event.target.value });
-    handleUploadStart = () => this.setState({ isUploading: true, progress: 0 });
-    handleProgress = progress => this.setState({ progress });
-    handleUploadError = error => {
-      this.setState({ isUploading: false });
-      console.error(error);
-    };
-    handleUploadSuccess = filename => {
-      this.setState({ video: filename, progress: 100, isUploading: false });
-      firebase
-        .storage()
-        .ref("videos")
-        .child(filename)
-        .getDownloadURL()
-        .then(url => this.setState({ videoURL: url }));
-    };
-   
-    render() {
-      return (
-        <div>
-          
-          <form class = "uploader">
-          <label style={{backgroundColor: 'blue', color: 'white', padding: 10, borderRadius: 4, cursor: 'pointer'}}> 
-          <FileUploader 
-              
-              accept="media/*"
-              name="video"
-              randomizeFilename
-              storageRef={firebase.storage().ref("videos")}
-              onUploadStart={this.handleUploadStart}
-              onUploadError={this.handleUploadError}
-              onUploadSuccess={this.handleUploadSuccess}
-              onProgress={this.handleProgress}
-                
-            />
-              </label>
-            {/* <input
-              type="text"
-              value={this.state.video}
-              name="video"
-              onChange={this.handleUploadVideo}
-            />  */}
-            <button onClick = {this.handleUploadSuccess}>Upload</button>
-            {this.state.isUploading && <p>Progress: {this.state.progress}</p>}
-            {this.state.videoURL && <video src={this.state.videoURL}  height = "300" width="300"/>} 
-            <br/>
-       
-          </form>
-          {/* <div>
-          {this.state.downloadURLs.map((downloadURL, i) => {
-            return <video key={i} src={downloadURL} />;
-          })}
-        </div> */}
-        
-        </div>
-      );
-    }
+  };
+ 
+ // after react-ziggeo 3.3.0 version embedding argument also accessible
+ playing = (embedding /* only starting from react-ziggeo 3.3.0 */) => {
+  console.log('it\'s playing, your action here');
+};
+
+paused = (embedding /* only starting from react-ziggeo 3.3.0 */) => {
+  console.log('it\'s paused, your action when pause');
+};
+ 
+  render() {
+    return (
+      <div>
+      {/* <ZiggeoPlayer
+      apiKey={'a293c346773385bae50fb960f2210d2d'}
+      video={'Video Token'}
+      theme={'modern'}
+      themecolor={'red'}
+      skipinitial={false}
+      onPlaying={this.playing}
+      onPaused={this.paused}
+     
+       /> */}
+      </div>
+    );
   }
-   
-  export default VideoPage;
-
-
+}
+ 
+export default VideoPage;

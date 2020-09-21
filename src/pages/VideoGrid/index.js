@@ -7,10 +7,6 @@ import VideoPage from '../../components/FileUpload';
 
 import './style.scss';
 
-// const storageRef = firebase.storage.ref("videos");
-//     storageRef.getDownloadURL().then((url) {
-//       console.log(url);
-//     });   
 
 class VideoGrid extends Component {
 
@@ -24,7 +20,7 @@ class VideoGrid extends Component {
             <div> 
                 <Col>
                     <Row>
-                        <VideoPage />
+                       
                     </Row>
                 </Col>
             <Container className = 'gridTest'>

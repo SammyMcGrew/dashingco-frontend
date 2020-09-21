@@ -2,6 +2,7 @@
 <html lang="en">
   <head>
     
+
     <meta charset="utf-8" />
     <!-- <link rel="icon" href="%PUBLIC_URL%/favicon.ico" /> -->
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -29,10 +30,32 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <title>React App</title>
+    <link rel="stylesheet" href="//assets.ziggeo.com/v2-stable/ziggeo.css" />
+    <script src="//assets.ziggeo.com/v2-stable/ziggeo.js"></script>
+    <script>
+      var ziggeoApp = new ZiggeoApi.V2.Application({
+        token: "a293c346773385bae50fb960f2210d2d",
+      });
+    </script>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"> </div>
+    <script>
+      ziggeoApp.on("ready", function() {
+        // Let's get the ziggeorecorder element reference
+        var element = document.getElementById('myRecorder');
+      
+        // Now let's get the actual Ziggeo embedding / object that we can use
+        var recorder = ZiggeoApi.V2.Recorder.findByElement(element);
+      
+        // Now you can listen for the verified event
+        recorder.on("verified", function() {
+          var videoToken = recorder.get('video'); // Video token is available after the event is triggered
+          alert("The video with token " + videoToken + " has been submitted!");
+        });
+      });
+      </script>
     <!--
       This HTML file is a template.
       If you open it directly in the browser, you will see an empty page.
