@@ -1,10 +1,16 @@
+import firebase from "firebase";
 import React, { Component } from 'react';
 import ReactPlayer from 'react-player';
 import ResponsivePlayer from '../../components/Videos';
 import {Table, Container, Grid, Row, Col, Image, Button} from 'react-bootstrap';
-
+import VideoPage from '../../components/FileUpload';
 
 import './style.scss';
+
+// const storageRef = firebase.storage.ref("videos");
+//     storageRef.getDownloadURL().then((url) {
+//       console.log(url);
+//     });   
 
 class VideoGrid extends Component {
 
@@ -16,8 +22,13 @@ class VideoGrid extends Component {
     render() {
         return (
             <div> 
+                <Col>
+                    <Row>
+                        <VideoPage />
+                    </Row>
+                </Col>
             <Container className = 'gridTest'>
-                
+                    
                     <Col>
                         <Row>
                             Video goes here.
